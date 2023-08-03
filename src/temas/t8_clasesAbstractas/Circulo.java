@@ -2,40 +2,35 @@
 package temas.t8_clasesAbstractas;
 
 public class Circulo extends Figura {
-    private double radio;
-    private double pi = 3.1416;
-    private double perimetroCirculo = (2*pi)*radio;
+    
+    private static final double PI = 3.1416;
+    
+    private double radio;    
     
     public Circulo(double radio) {
         super(0);
         this.radio = radio;
     }
     
-    
     public double getRadio() {
         return radio;
+    }
+    
+    public double getPI(){
+        return this.PI;
     }
 
     public void setRadio(double radio) {
         this.radio = radio;
     }
 
-    public double getPerimetroCirculo() {
-        return perimetroCirculo;
-    }
-
-    public void setPerimetroCirculo(double perimetroCirculo) {
-        this.perimetroCirculo = perimetroCirculo;
-    }
-
-    
     @Override
     public double calcularSuperficie() {
-       return pi* (radio * radio);
+       return PI * (radio * radio);
     }
 
     @Override
     public double calcularPerimetro() {
-       return perimetroCirculo;
+       return (2*PI)*radio;
     }
 }
