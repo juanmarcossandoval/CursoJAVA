@@ -17,7 +17,7 @@ public class Circulo extends Figura {
     }
     
     public double getPI(){
-        return this.PI;
+        return Circulo.PI;
     }
 
     public void setRadio(double radio) {
