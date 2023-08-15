@@ -56,6 +56,17 @@ public class Serpiente extends Mascota {
     }
 
     @Override
+    public String toString() {
+        return "{" + "esVenenosa:" + esVenenosa + ",\n"
+                + " tieneVeneno:" + tieneVeneno + ",\n"
+                + " estaEnTierra:" + estaEnTierra + ",\n"
+                + " nombre: " + super.getNombre() + ",\n"
+                + " comida favorita: " + super.getComidaFavorita() + ",\n"
+                + " esExotica: " + super.getEsExotica() + ".\n" + "}";
+    }
+
+    
+    @Override
     public void hacerTruco() {
         System.out.println("la serpiente no es divertida");
     }

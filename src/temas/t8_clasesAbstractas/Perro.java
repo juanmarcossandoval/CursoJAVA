@@ -27,12 +27,19 @@ public class Perro extends Mascota {
     public void setColor(String color) {
         this.color = color;
     }
-
+    
     @Override
     public String toString() {
-        return "Perro{" + "raza=" + raza + ", color=" + color + '}';
+        return "{" + "raza:" + raza + ",\n"
+                + " color:" + color + ",\n"
+                + " nombre: " + super.getNombre()+ ",\n" //se puede usar This. en vez de Super.
+                + " comida favorita: " + super.getComidaFavorita()+ ",\n" 
+                + " esExotica: " + super.getEsExotica() + ",\n" + '}';
     }
-    
+    /*@Override
+    public String getNombre(){ si pongo This en vez de Super, Tengo q sobreescribir el getnombre de la clase
+        return "maria";
+    }*/
     
     @Override
     public void hacerTruco() {
