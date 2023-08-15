@@ -30,11 +30,12 @@ public class Perro extends Mascota {
     
     @Override
     public String toString() {
-        return "{" + "raza:" + raza + ",\n"
-                + " color:" + color + ",\n"
-                + " nombre: " + super.getNombre()+ ",\n" //se puede usar This. en vez de Super.
-                + " comida favorita: " + super.getComidaFavorita()+ ",\n" 
-                + " esExotica: " + super.getEsExotica() + ",\n" + '}';
+        return "{\n" 
+                + "raza:" + raza + ",\n"
+                + "color:" + color + ",\n"
+                + "nombre: " + super.getNombre()+ ",\n" //se puede usar This. en vez de Super.
+                + "comida favorita: " + super.getComidaFavorita()+ ",\n" 
+                + "esExotica: " + super.getEsExotica() + "\n}" ;
     }
     /*@Override
     public String getNombre(){ si pongo This en vez de Super, Tengo q sobreescribir el getnombre de la clase
