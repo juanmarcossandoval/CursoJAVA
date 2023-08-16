@@ -15,6 +15,10 @@ public class Loro extends Mascota {
         return esImitador;
     }
 
+    public boolean getEsImitador() {
+        return esImitador;
+    }
+
     public void setEsImitador(boolean esImitador) {
         this.esImitador = esImitador;
     }
@@ -25,6 +29,16 @@ public class Loro extends Mascota {
 
     public void setCanHuevosMaximos(int canHuevosMaximos) {
         this.canHuevosMaximos = canHuevosMaximos;
+    }
+
+    @Override
+    public String toString() {
+        return "{\n"
+                + "nombre:" + super.getNombre() + ",\n"
+                + "comidaFavorita:" + super.getComidaFavorita() + ",\n"
+                + "esExotica:" + super.getEsExotica() + ",\n"
+                + "es imitador:" + esImitador + ",\n"
+                + "Cantidad de Huevos:" + canHuevosMaximos + ",\n}";
     }
 
     @Override
@@ -46,4 +60,7 @@ public class Loro extends Mascota {
         System.out.println("Este Loro Puede Garrear");
     }
 
+    public void volar() {
+        System.out.println("Loro Volador");
+    }
 }

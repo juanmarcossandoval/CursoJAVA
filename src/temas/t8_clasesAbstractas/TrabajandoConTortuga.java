@@ -9,5 +9,7 @@ public class TrabajandoConTortuga {
         System.out.println("Es una mascota exotica?: " + t.getEsExotica());
         t.hibernarOdespertarse();
         t.hibernarOdespertarse();
+        
+        
     }
 }
