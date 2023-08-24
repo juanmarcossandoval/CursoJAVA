@@ -24,8 +24,6 @@ public class Auto {
         Auto.numeroDeAuto = numeroDeAuto;
     }
     
-    
-    
     public void recorrerKm(int cantKm){
         this.kmRecorridos = this.kmRecorridos + cantKm;
     }
