@@ -1,16 +1,16 @@
 
 package temas.t13_enumerados;
 
-public class PersonaEnum {
+public class PersonaConAtributoEnum {
     private String nombre;
     private String apellido;
     private TiposIdentificaciones tipoIdentificacion;//es un enum
     private String numIdentificacion;
 
-    public PersonaEnum() {
+    public PersonaConAtributoEnum() {
     }
 
-    public PersonaEnum(String nombre, String apellido, TiposIdentificaciones tipoIdentificacion, String numIdentificacion) {
+    public PersonaConAtributoEnum(String nombre, String apellido, TiposIdentificaciones tipoIdentificacion, String numIdentificacion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.tipoIdentificacion = tipoIdentificacion;

@@ -6,12 +6,12 @@ import temas.t10_TryCatch.ConsoleUtils;
 public class EjemploConEnum {
     public static void main(String[] args) {
         
-        PersonaEnum arreglo[] = new PersonaEnum[4];
+        PersonaConAtributoEnum arreglo[] = new PersonaConAtributoEnum[4];
         
         ConsoleUtils.imprimir("Ingreso de datos..");
         for(int i = 0; i < arreglo.length; i++) {
             //primero crea una persona vacia
-            PersonaEnum p = new PersonaEnum();
+            PersonaConAtributoEnum p = new PersonaConAtributoEnum();
             //leemos por consola cada uno de los atributos
             p.setNombre(ConsoleUtils.leerCadena("Ingrese nombre: "));
             p.setApellido(ConsoleUtils.leerCadena("Ingrse apellido: "));
