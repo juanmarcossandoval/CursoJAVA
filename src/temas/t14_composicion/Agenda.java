@@ -51,9 +51,11 @@ public class Agenda {
     }
     
     private static Domicilio leerDomicilio(){
-        //TODO: DECLARAR EL OBJETO VACIO
-        //TODO: LEER Y SETEAR TODOS SUS ATRIBUTOS
-        //TODO: DEVOLVER EL DOMICILIO
-        return null;
+        Domicilio d = new Domicilio ();
+        d.setAltura(ConsoleUtils.leerCadena("Altura: "));
+        d.setCalle(ConsoleUtils.leerCadena("Calle: "));
+        d.setCiudad(ConsoleUtils.leerCadena("Ciudad: "));
+        d.setCodPos(ConsoleUtils.leerCadena("Codigo Postal: "));
+        return d;
     }
 }
