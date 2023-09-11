@@ -14,9 +14,9 @@ public class TrabajandoConBigDecimal {
         bd = new BigDecimal(9);
         System.out.println("BigDecimal con integer: " + bd);
         
+        // la forma mas recomendable de inicializar un BigDecimal es con un STRING
         bd = new BigDecimal("8.9");
         System.out.println("BigDecimal con String: " + bd);
-        //bd = new BigDecimal();
         
         BigDecimal a = new BigDecimal("1.2");
         
@@ -41,7 +41,7 @@ public class TrabajandoConBigDecimal {
         //esto nos tira una excepcion porque al dar un resultado con decimales periodicos se desborda la memoria
         //resultado = c.divide(d);
         
-        //DEFINIMOS LAS REGLAS DE NEGOCIO
+        //DEFINIMOS LAS REGLAS DE NEGOCIO -> 3 digitos significativos y redondeo de la mitad para arriba
         final MathContext $MATH_CONTEXT = new MathContext(3,RoundingMode.HALF_UP);
         
         resultado = c.divide(d,$MATH_CONTEXT);
@@ -57,7 +57,7 @@ public class TrabajandoConBigDecimal {
         resultado = resultado.sqrt(new MathContext(2));
         System.out.println("Resultado de la raiz cuadrada: " + resultado);
         
-        //resultado va a ser igual a un 5 raiz cuadrada con 2 decimales
+        //resultado va a ser igual a un 5 raiz cuadrada con 5 decimales
         resultado = new BigDecimal("5").sqrt(new MathContext(5));
         System.out.println("Resultado de la seg raiz cuadrada: " + resultado);
         
