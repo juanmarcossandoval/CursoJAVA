@@ -89,7 +89,19 @@ public class PracticaBigDecimal {
     }
 
     private static void multiplicar() {
-
+        BigDecimal numA = ConsoleUtils.leerBigDecimal(MSG);
+        if (numA == null) {
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }
+        BigDecimal numB = ConsoleUtils.leerBigDecimal(MSG);
+        if (numB == null){
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }
+        BigDecimal resultado = numA.multiply(numB);
+        System.out.println(RES + resultado);
+        
     }
 
     private static void potenciar() {
