@@ -81,7 +81,18 @@ public class PracticaBigDecimal {
     }
 
     private static void restar() {
-
+        BigDecimal numeroA = ConsoleUtils.leerBigDecimal(MSG);
+        if (numeroA == null){
+           ConsoleUtils.imprimir(ERR);
+           return;   
+        }
+        BigDecimal numeroB = ConsoleUtils.leerBigDecimal(MSG);
+        if (numeroB == null){
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }
+        BigDecimal resultado = numeroA.subtract(numeroB);
+        System.out.println(RES + resultado);
     }
 
     private static void dividir() {
