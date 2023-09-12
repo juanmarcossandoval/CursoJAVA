@@ -1,5 +1,6 @@
 package temas.t10_TryCatch;
 
+import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -29,10 +30,14 @@ public class ConsoleUtils {
         System.out.println(msg);
     }
 
-    public static String leerCadena(String msg) {
-        imprimir(msg);//Pór favor ingrese...
+    public static String leerCadena(){
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
+    }
+    
+    public static String leerCadena(String msg) {
+        imprimir(msg);//Pór favor ingrese...
+        return leerCadena();
     }
 
     public static Double leerDecimal(String msg) {
@@ -48,8 +53,7 @@ public class ConsoleUtils {
         }
     }
 
-    public static Integer leerEntero(String msg) {
-        imprimir(msg);
+    public static Integer leerEntero(){
         Scanner sc = new Scanner(System.in);
         try {
             Integer numeroLeido = sc.nextInt();
@@ -60,5 +64,23 @@ public class ConsoleUtils {
             //System.out.println("");
             return null;
         }
+    }
+    
+    public static Integer leerEntero(String msg) {
+        imprimir(msg);
+        return leerEntero();
+    }
+    
+    public static BigDecimal leerBigDecimal(String msg){
+        imprimir(msg);
+        String lectura = leerCadena();
+        BigDecimal numLeido; 
+        try {
+            numLeido = new BigDecimal(lectura);
+            return numLeido;
+        } catch (NumberFormatException ex){
+            System.out.println("No se pudo leer correctamente el numero..");
+        }
+        return null;
     }
 }
