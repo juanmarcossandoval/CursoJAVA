@@ -16,7 +16,8 @@ public class PracticaBigDecimal {
     private static final String MSG = "Ingrese un numero decimal: ";
     private static final String RES = "El resultado es : ";
     private static final String ERR = "No se ingreso un dato númerico";
-
+    private static final String INT = "Ingrese un numero entero";
+    
     public static void main(String[] args) {
         seleccionarOpcion(pintarMenu());
     }
@@ -96,7 +97,19 @@ public class PracticaBigDecimal {
     }
 
     private static void dividir() {
-
+        BigDecimal numeroA = ConsoleUtils.leerBigDecimal(MSG);
+        if (numeroA == null){
+           ConsoleUtils.imprimir(ERR);
+           return;   
+        }
+        BigDecimal numeroB = ConsoleUtils.leerBigDecimal(MSG);
+        if (numeroB == null){
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }   
+        BigDecimal resultado = numeroA.divide(numeroB);
+            System.out.println(RES + resultado);
+           
     }
 
     private static void multiplicar() {
@@ -116,7 +129,18 @@ public class PracticaBigDecimal {
     }
 
     private static void potenciar() {
-
+        BigDecimal num1 = ConsoleUtils.leerBigDecimal(MSG);
+        if (num1 == null){
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }
+        Integer num2 = ConsoleUtils.leerEntero(INT);
+        if (num2 == null){
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }
+        BigDecimal resultado = num1.pow(num2);
+        System.out.println(RES + resultado);
     }
 
     private static void raizCuadrada() {
