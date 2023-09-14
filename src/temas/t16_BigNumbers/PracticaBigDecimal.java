@@ -1,6 +1,7 @@
 package temas.t16_BigNumbers;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import temas.t10_TryCatch.ConsoleUtils;
 
@@ -144,7 +145,13 @@ public class PracticaBigDecimal {
     }
 
     private static void raizCuadrada() {
-
+        BigDecimal num1 = ConsoleUtils.leerBigDecimal(MSG);
+        if (num1 == null){
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }
+        BigDecimal resultado = num1.sqrt(new MathContext (9));
+        System.out.println(RES + resultado);
     }
 
     private static void redondear() {
@@ -163,6 +170,13 @@ public class PracticaBigDecimal {
     }
     
     private static void valorAbs() {
-        
+        BigDecimal numLeido = ConsoleUtils.leerBigDecimal(MSG);
+        if (numLeido== null){
+            ConsoleUtils.imprimir(ERR);
+            return;
+        }
+        BigDecimal numValorAbsoluto = numLeido.abs();
+        System.out.println(RES + numValorAbsoluto);
     }
+    
 }
