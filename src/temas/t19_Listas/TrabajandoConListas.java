@@ -1,11 +1,10 @@
 package temas.t19_Listas;
 
-import java.util.AbstractList;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 import java.util.List;
-import java.util.Vector;
-import temas.t8_clasesAbstractas.Mascota;
+
 
 public class TrabajandoConListas {
     public static void main(String[] args) {
