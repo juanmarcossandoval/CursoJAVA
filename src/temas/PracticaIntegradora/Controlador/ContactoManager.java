@@ -6,6 +6,8 @@ import temas.PracticaIntegradora.Modelo.Contacto;
 //CLASE CRUD -> CREATE, READ, UPDATE, DELETE
 public interface ContactoManager {
     
+    public void agregarNuevo();
+    
     public Contacto crearNuevo();
     
     public void eliminar(Contacto c);
@@ -18,6 +20,6 @@ public interface ContactoManager {
     
     public void listarTodos();
     
-    public Contacto modificar();
+    public Contacto modificar(Contacto c);
     
 }
