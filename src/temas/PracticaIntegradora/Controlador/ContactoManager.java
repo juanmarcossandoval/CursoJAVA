@@ -20,6 +20,8 @@ public interface ContactoManager {
     
     public void listarTodos();
     
+    public void listarTodos(List<Contacto> lista);
+    
     public Contacto modificar(Contacto c);
     
 }

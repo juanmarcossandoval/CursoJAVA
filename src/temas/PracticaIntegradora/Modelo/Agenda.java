@@ -16,7 +16,10 @@ public class Agenda implements ContactoManager {
     
     @Override
     public void agregarNuevo(){
-        this.contactos.add(crearNuevo());
+        Contacto contactoNuevo = crearNuevo();
+        if(contactoNuevo != null){
+            this.contactos.add(contactoNuevo);
+        }        
     }
 
     @Override
@@ -52,8 +55,9 @@ public class Agenda implements ContactoManager {
 
     @Override
     public Contacto buscarPorEmail(String email) {
+        String criterio = email.toUpperCase();
         for (Contacto c : contactos) {
-            if (c.getEmail().equals(email)) {
+            if (c.getEmail().equals(criterio)) {
                 return c;
             }
         }
@@ -64,11 +68,13 @@ public class Agenda implements ContactoManager {
     public List<Contacto> buscarPorNombreOApellido(String nomOApe) {
         String criterio = nomOApe.toUpperCase();
         List<Contacto> encontrados = new ArrayList<>();
-
+        
         for (Contacto c : contactos) {
-            if (c.getNombre().equals(criterio)) {
+            //si el nombre por paramatro forma parte del nombre completo lo va a encontrar igual
+            // por eso utilizamos el metodo "contains" de la clase STRING
+            if (c.getNombre().contains(criterio)) {
                 encontrados.add(c);
-            } else if (c.getApellido().equals(criterio)) {
+            } else if (c.getApellido().contains(criterio)) {
                 encontrados.add(c);
             }
         }
@@ -77,7 +83,18 @@ public class Agenda implements ContactoManager {
 
     @Override
     public void listarTodos() {
+        if (this.contactos.isEmpty()){
+            ConsolaUtils.imprimir(Mensajes.EMPTY_CONTACTS.msg());
+        }
         for (int i = 0; i < this.contactos.size(); i++) {
+            //consigue el contacto en la posicion i y lo convierte a string para imprimirlo
+            ConsolaUtils.imprimir(i + ")" + contactos.get(i).toString());
+        }
+    }
+    
+    @Override
+    public void listarTodos(List<Contacto> lista) {
+        for (int i = 0; i < lista.size(); i++) {
             //consigue el contacto en la posicion i y lo convierte a string para imprimirlo
             ConsolaUtils.imprimir(i + ")" + contactos.get(i).toString());
         }

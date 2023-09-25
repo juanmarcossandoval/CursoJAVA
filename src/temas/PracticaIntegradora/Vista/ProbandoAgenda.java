@@ -39,6 +39,25 @@ public class ProbandoAgenda {
         ConsolaUtils.imprimir("1) Modificar contacto ");
         ConsolaUtils.imprimir("2) Volver al menu anterior ");
         Integer opcionElegida = ConsolaUtils.leerEntero();
+        opcionesMenuAcciones(c, opcionElegida);
+    }
+    
+    public static void opcionesMenuAcciones(Contacto c, Integer opcion){
+        switch (opcion) {
+            case 0:
+                ProbandoAgenda.agenda.eliminar(c);
+                break;
+            case 1:
+                Contacto modificado = ProbandoAgenda.agenda.modificar(c);
+                if (modificado != null){
+                    ConsolaUtils.imprimir(modificado.toString());
+                }
+                break;                
+            case 2:
+                break;
+            default:
+                ConsolaUtils.imprimir(Mensajes.INVALID_OPTION.msg());
+        }
     }
     
     public static void opcionesMenuPrincipal(Integer opcion){
@@ -52,14 +71,17 @@ public class ProbandoAgenda {
             case 1: 
                 filtrado = ProbandoAgenda.agenda.buscarPorNumero(
                     ConsolaUtils.leerCadena(Mensajes.NUMERO.msg()));
+                opcionesFiltrado(filtrado);
                 break;
             case 2: 
                 String emailBuscado = ConsolaUtils.leerCadena(Mensajes.EMAIL.msg());
                 filtrado = ProbandoAgenda.agenda.buscarPorEmail(emailBuscado);
+                opcionesFiltrado(filtrado);
                 break;
             case 3:
                 String nomOape = ConsolaUtils.leerCadena(Mensajes.NOMOAPE.msg());
                 encontrados = ProbandoAgenda.agenda.buscarPorNombreOApellido(nomOape);
+                opcionesFiltrado(encontrados);
                 break;
             case 4: 
                 ProbandoAgenda.agenda.listarTodos();
@@ -67,6 +89,24 @@ public class ProbandoAgenda {
             default:
                 ConsolaUtils.imprimir(Mensajes.INVALID_OPTION.msg());
                 break;
+        }
+    }
+    
+    private static void opcionesFiltrado(Contacto filtrado){
+        if(filtrado == null){
+            ConsolaUtils.imprimir(Mensajes.NOT_FOUND.msg());
+        } else {
+            menuAcciones(filtrado);
+        }
+    }
+    
+    private static void opcionesFiltrado(List<Contacto> lista){
+        if (lista.isEmpty()){
+            ConsolaUtils.imprimir(Mensajes.NOT_FOUND.msg());
+        } else {
+            ProbandoAgenda.agenda.listarTodos(lista);
+            Integer contactoSeleccionado = ConsolaUtils.leerEntero(Mensajes.SELECT_CONTACT.msg());
+            menuAcciones(lista.get(contactoSeleccionado));
         }
     }
     
